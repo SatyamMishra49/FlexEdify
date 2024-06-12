@@ -1,0 +1,130 @@
+body{
+    background-color: #001736;
+}
+a{
+    color:white;
+    text-decoration: none;
+    background-color: #4CAF50;
+    padding: 10px;
+    border-radius: 10px;
+}
+a:hover{
+    background-color: #00469c;
+    border: 1px solid #4CAF50;
+}
+.content {
+    background-color: #002c65;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    color:white;
+}
+.content2{
+    background-color: #00469c;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    color:white;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.question, .options, .correct-answer, .topic {
+    margin-bottom: 20px;
+}
+
+.option {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="number"], input[type="submit"] {
+    width: calc(100% - 42px); /* Adjusted width for input fields to accommodate padding and border */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#addQuestionBtn, #submitQuestionsBtn{
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#submitQuestionsBtn{
+    margin-top: 10px;
+}
+
+
+#addQuestionBtn:hover, #submitQuestionsBtn:hover{
+    background-color: #45a049;
+}
+
+.answer-selection {
+    margin-bottom: 20px;
+}
+
+.radio-buttons {
+    display: flex;
+}
+
+.radio-buttons input[type="radio"] {
+    display: none;
+}
+
+.radio-buttons label {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #4CAF50;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.radio-buttons label:hover {
+    background-color: #e0e0e0;
+}
+
+.radio-buttons input[type="radio"]:checked + label {
+    background-color: #357938;
+    color: white;
+}

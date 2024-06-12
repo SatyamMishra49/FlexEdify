@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title> Teacher's Page</title>
+{% endblock %} 
+
+{% block body %}
+<div class="content">
+    <h1>Enter the Question</h1>
+    {% for n in tasks %}
+        <div class="content2">
+            <h1>Question {{n.id}}</h1>
+            <div class="question">
+                <h3>Question:</h3>
+                <p>{{n.question}}</p>
+            </div>
+            <div class="options">
+                <h3>Options:</h3>
+                <div class="option">
+                    <p><strong>Option 1:</strong> {{n.option1}}</p>
+                </div>
+                <div class="option">
+                    <p><strong>Option 2:</strong> {{n.option2}}</p>
+                </div>
+                <div class="option">
+                    <p><strong>Option 3:</strong> {{n.option3}}</p>
+                </div>
+                <div class="option">
+                    <p><strong>Option 4:</strong> {{n.option4}}</p>
+                </div>
+            </div>
+            <div class="correct-answer">
+                <h3>Correct Answer:</h3>
+                <p>{{n.c_answer}}</p>
+            </div>
+            <div class="topic">
+                <h3>Topic:</h3>
+                <p>{{n.topic}}</p>
+            </div>
+            <div class="topic">
+                <h3>Submitted</h3>
+                <p>{{n.date_created.time()}}</p>
+            </div>
+            <div class="topic">
+                <a href="/delete/{{n.id}}">Delete</a>
+                <a href="/update/{{n.id}}">Update</a>
+            </div>
+        </div>
+    {% endfor %}
+
+
+    <form action='/' method='post' id="questionForm">
+        <!-- Add Question button -->
+        <input type="button" id="addQuestionBtn" value="Add Question">
+        <input type='button' id='submitQuestionsBtn' name='action' value="Finish">
+        <!-- Hidden form fields -->
+        <div id="questionFields" style="display: none; margin-top:20px;">
+            <label for="question">Question:</label>
+            <input type='text' name='question' id='question' placeholder='Enter the question..' required>       
+            <label for="option1">Option 1:</label>
+            <input type='text' name='option1' id='option1' placeholder='Enter the answer..' required>
+            <label for="option2">Option 2:</label>
+            <input type='text' name='option2' id='option2' placeholder='Enter the answer..' required>
+            <label for="option3">Option 3:</label>
+            <input type='text' name='option3' id='option3' placeholder='Enter the answer..' required>
+            <label for="option4">Option 4:</label>
+            <input type='text' name='option4' id='option4' placeholder='Enter the answer..' required>
+            <div class="answer-selection">
+                <label for="c_answer">Select Correct Answer:</label>
+                <div class="radio-buttons">
+                    <input type="radio" id="option1_radio" name="c_answer" value="1">
+                    <label for="option1_radio">1</label>
+                    <input type="radio" id="option2_radio" name="c_answer" value="2">
+                    <label for="option2_radio">2</label>
+                    <input type="radio" id="option3_radio" name="c_answer" value="3">
+                    <label for="option3_radio">3</label>
+                    <input type="radio" id="option4_radio" name="c_answer" value="4">
+                    <label for="option4_radio">4</label>
+                </div>
+            </div>         
+            <label for="topic">Topic:</label>
+            <input type='text' name='topic' id='topic' placeholder='Enter the topic..' required>
+            <input type='submit' name='action' value="Add Question">
+            
+        </div>
+    </form>
+    <script>
+        document.getElementById('addQuestionBtn').addEventListener('click', function() {
+            // Show the form fields when Add Question button is clicked
+            document.getElementById('questionFields').style.display = 'block';
+        });
+        document.getElementById('submitQuestionsBtn').addEventListener('click', function() {
+                window.location.href = '/display/';
+        });
+    </script>
+    
+
+{% endblock %}

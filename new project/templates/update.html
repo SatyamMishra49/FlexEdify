@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title> Teacher's Page</title>
+{% endblock %} 
+
+{% block body %}
+<div class="content">
+    <h1> Update the Question </h1>
+    <form action='/update/{{n.id}}' method='post'>
+        <label for="question">Question:</label>
+        <input type='text' name='question' id='question' placeholder='Enter the question..' value="{{n.question}}" required>       
+        <label for="option1">Option 1:</label>
+        <input type='text' name='option1' id='option1' placeholder='Enter the answer..' value="{{n.option1}}" required>
+        <label for="option2">Option 2:</label>
+        <input type='text' name='option2' id='option2' placeholder='Enter the answer..' value="{{n.option2}}" required>
+        <label for="option3">Option 3:</label>
+        <input type='text' name='option3' id='option3' placeholder='Enter the answer..' value="{{n.option3}}" required>
+        <label for="option4">Option 4:</label>
+        <input type='text' name='option4' id='option4' placeholder='Enter the answer..' value="{{n.option4}}" required>
+        <div class="answer-selection">
+            <label for="c_answer">Select Correct Answer:</label>
+            <div class="radio-buttons">
+                <input type="radio" id="option1_radio" name="c_answer" value="1" {% if n.c_answer == "1" %}checked{% endif %}>
+                <label for="option1_radio">1</label>
+                <input type="radio" id="option2_radio" name="c_answer" value="2" {% if n.c_answer == "2" %}checked{% endif %}>
+                <label for="option2_radio">2</label>
+                <input type="radio" id="option3_radio" name="c_answer" value="3" {% if n.c_answer == "3" %}checked{% endif %}>
+                <label for="option3_radio">3</label>
+                <input type="radio" id="option4_radio" name="c_answer" value="4" {% if n.c_answer == "4" %}checked{% endif %}>
+                <label for="option4_radio">4</label>
+            </div>
+        </div>                     
+        <label for="topic">Topic:</label>
+        <input type='text' name='topic' id='topic' placeholder='Enter the topic..' value="{{n.topic}}" required>
+        <input type='submit' value="Update Question">
+    </form>
+</div>
+<script>
+    // Get the value of n.c_answer from Flask
+    var c_answerValue = "{{ n.c_answer }}";
+
+    // Check the radio button corresponding to the value received
+    document.getElementById("option" + c_answerValue + "_radio").checked = true;
+</script>
+{% endblock %}

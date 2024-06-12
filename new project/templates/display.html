@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title> Teacher's Page</title>
+{% endblock %} 
+
+{% block body %}
+<div class="content">
+    <h1>Enter the Question</h1>
+    {% for n in tasks %}
+        <div class="content2">
+            <h1>Question</h1>
+            <div class="question">
+                <h3>Question:</h3>
+                <p>{{n.question}}</p>
+            </div>
+            <div class="options">
+                <h3>Options:</h3>
+                <div class="option">
+                    <p><strong>Option 1:</strong> {{n.option1}}</p>
+                </div>
+                <div class="option">
+                    <p><strong>Option 2:</strong> {{n.option2}}</p>
+                </div>
+                <div class="option">
+                    <p><strong>Option 3:</strong> {{n.option3}}</p>
+                </div>
+                <div class="option">
+                    <p><strong>Option 4:</strong> {{n.option4}}</p>
+                </div>
+            </div>
+            <div class="correct-answer">
+                <h3>Correct Answer:</h3>
+                <p>{{n.c_answer}}</p>
+            </div>
+            <div class="topic">
+                <h3>Topic:</h3>
+                <p>{{n.topic}}</p>
+            </div>
+            <div class="topic">
+                <h3>Submitted</h3>
+                <p>{{n.date_created.time()}}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+
+    <form action='/display' method='post'>
+        <input type='submit' name='action' value="Add more or Edit Questions">
+    </form>
+
+{% endblock %}

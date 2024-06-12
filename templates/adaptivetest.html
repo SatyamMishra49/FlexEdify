@@ -1,0 +1,82 @@
+{% include "header.html" %}
+    <!--<h1>Welcome to My Webpage</h1>
+    <p>Below is an embedded third-party website:</p>
+    <iframe src="https://learn.amy.app/studentAssignments/vkop6x2RcRaqrDAoDN05" width="600" height="300"></iframe>
+    -->
+
+    <!--blog page content-->
+    <link rel="stylesheet" href="/static/styles/adaptivetest.css" />
+    <section class='header'>
+    <div style="margin-top:-312px">
+    <section class="blog-content">
+      <video src="/static/images/video4.mp4" autoplay loop muted></video>
+          <h1>Quadratic Equation</h1>
+          <div class="comment-box">
+            <h3>Q1. <br><img src="/static/images/mathq2.png" alt="question1" style="height: 40px; width: auto;"></h3>
+            <form class="comment-form">
+              <div class="form-group">
+                <input type="text" id="answerInput" placeholder="Enter the answer like a,b" required>
+                <button type="button" class="submitbtn" onclick="checkAnswer()" id="submit1">Submit</button>
+                <div class="quesdiv" id="optionsContainer1">
+                  <label for="quesdiv"> The Answer was incorrect<br>lets go step by step now!<br><strong>How will you split the middle term?</strong> </label>
+                  <button type="button" onclick="selectOption('option1-1')" id="option1-1">y^2+5y+5y+21=0</button>
+                  <label for="option1-1" style="display: none;" id="optlab1-1" class="labop"></label>
+                  <button type="button" onclick="selectOption('option1-2')" id="option1-2">y^2+7y+3y+21=0</button>
+                  <label for="option1-2" style="display: none;" id="optlab1-2" class="labop"></label>
+                  <button type="button" onclick="selectOption('option1-3')" id="option1-3">y^2+11y-y+21=0</button>
+                  <label for="option1-3" style="display: none;" id="optlab1-3" class="labop"></label>
+                </div>
+                <div class="quesdiv" id="optionsContainer2">
+                  <label for="quesdiv"><strong>What common factor will be taken?</strong> </label>
+                  <button type="button" onclick="selectOption('option2-1')" id="option2-1">y(y+7)+1(3y+21)=0</button>
+                  <label for="option1" style="display: none;" id="optlab2-1" class="labop"></label>
+                  <button type="button" onclick="selectOption('option2-2')" id="option2-2">y(y+3)+1(7y+21)=0</button>
+                  <label for="option1" style="display: none;" id="optlab2-2" class="labop"></label>
+                  <button type="button" onclick="selectOption('option2-3')" id="option2-3">y(y+7)+3(y+7)=0</button>
+                  <label for="option1" style="display: none;" id="optlab2-3" class="labop"></label>
+                </div>
+                <div class="quesdiv" id="optionsContainer3">
+                  <label for="quesdiv"><strong>What are the roots after grouping?</strong> </label>
+                  <button type="button" onclick="selectOption('option3-1')" id="option3-1">y = -7 or -3</button>
+                  <label for="option1" style="display: none;" id="optlab3-1" class="labop"></label>
+                  <button type="button" onclick="selectOption('option3-2')" id="option3-2">y = +7 or +3</button>
+                  <label for="option1" style="display: none;" id="optlab3-2" class="labop"></label>
+                  <button type="button" onclick="selectOption('option3-2')" id="option3-3">y = +7 or -3</button>
+                  <label for="option1" style="display: none;" id="optlab3-3" class="labop"></label>
+                </div>
+                <!--<div class="radio-group">
+                  <input type="radio" value="axb" id="op1" name="s1"><label for="op1">axb</label>
+                  <input type="radio" value="bxc" id="op2" name="s1"><label for="op2">bxc</label>
+                  <input type="radio" value="axc" id="op3" name="s1"><label for="op3">axc</label>
+                </div>
+                <input type="text" placeholder="Enter the value">
+              </div>-->
+            </form>
+          </div>
+    </section>
+    </div>
+    </section
+
+
+    <!--end-->
+    <script src="/static/javascript/script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var continueButton = document.querySelector('.popbtn');
+  
+        if (continueButton) {
+          continueButton.addEventListener('click', function () {
+            // Redirect to the subtopiclearn.html page
+            window.location.href = "{% url 'mathsubtopiclearn' chapter='rat' %}";
+          });
+        }
+      });
+    </script>
+  </body>
+  <div class="overlay" id="overlay">
+    <div class="dialogbox" id="maindialog" style="display: none;">
+      <p style="color: white;"><strong>Please have a tutorial of the topic before you continue with the test</strong></p>
+      <button type="button" class="popbtn">Continue</button>
+    </div>
+  </div>
+</html>
